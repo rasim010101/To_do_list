@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Todo List</title>
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="wrapperList">
+    <div class="container">
+        <div class="center">
+            <div id="todoList">
+                <button class="signOutBtn">SignOut</button>
+                <h2 class="todoListTitle">TodoList</h2>
+
+                <form autocomplete="off" id="postNewTaskBlock">
+                    <input required id="newTaskText" type="text">
+                    <button type="submit" id="newTaskSubmitBtn">submit</button>
+                </form>
+                <div class="buttonsFilter">
+                    <button class="allBtn">all</button>
+                    <button class="checkedBtn">checked</button>
+                    <button class="uncheckedBtn">unchecked</button>
+                </div>
+                <div id="list">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modalBg hideModalBg">
+        <form onclick="event.stopPropagation()" class="editTextModalWindow hideModal">
+            <h3>Update task</h3>
+            <div>
+                <input required id="editText" type="text">
+                <button type="submit" id="editTextSubmitBtn">submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+</body>
+<script src="js/app.js"></script>
+</html>

@@ -1,0 +1,551 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-family: sans-serif;
+}
+
+body {
+    background-image: url("../images/bg.jpg");
+    background-size: cover;
+    background-position: center center;
+}
+
+.wrapper {
+    position: relative;
+    height: calc(100vh - 80px);
+    backdrop-filter: blur(3px);
+}
+
+.wrapperList {
+    position: relative;
+    height: 100vh;
+    backdrop-filter: blur(3px);
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 1260px) {
+    .container {
+        width: 800px;
+    }
+}
+
+@media only screen and (max-width: 860px) {
+    .container {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 560px) {
+    .container {
+        width: 320px;
+    }
+}
+
+/*List Page ============================================*/
+
+.buttonsFilter {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    gap: 20px;
+}
+
+.buttonsFilter button {
+    display: block;
+    width: 100%;
+    height: 30px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #414141;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+.buttonsFilter button:hover {
+    background-color: #6b6b6b;
+}
+
+
+.buttonsFilter button:active {
+    background-color: #4f4f4f;
+    color: #c9c9c9;
+}
+
+.center {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.todoListTitle {
+    padding: 10px;
+    text-align: center;
+    font-size: 40px;
+    background-color: #fff;
+}
+
+@media only screen and (max-width: 560px) {
+    .todoListTitle {
+        display: none;
+    }
+}
+
+#todoList {
+    position: relative;
+    width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.16);
+    border: 5px solid white;
+}
+
+#postNewTaskBlock {
+    background-color: white;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+#postNewTaskBlock input {
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+#postNewTaskBlock button {
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #414141;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+#postNewTaskBlock button:hover {
+    background-color: #6b6b6b;
+}
+
+
+#postNewTaskBlock button:active {
+    background-color: #4f4f4f;
+    color: #c9c9c9;
+}
+
+#list {
+    height: 450px;
+    overflow-y: auto;
+}
+
+
+@media only screen and (max-width: 560px) {
+    #list {
+        height: 300px;
+    }
+}
+.task {
+    position: relative;
+    padding: 20px;
+    animation: popUpTask 200ms;
+}
+
+
+@keyframes popUpTask {
+    from {
+        opacity: 0;
+        top: -100px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.task:nth-of-type(odd) {
+    background-color: rgba(0, 0, 0, 0.24);
+}
+
+.task:nth-of-type(even) {
+    background-color: rgba(0, 0, 0, 0.13);
+}
+
+.taskTextBlock {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: flex-start;
+}
+
+.taskText {
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.taskText:hover {
+    text-decoration: underline;
+}
+
+.taskCheck {
+    cursor: pointer;
+}
+
+.taskDeleteBtn {
+    display: flex;
+    margin: 10px auto 0;
+    background-color: transparent;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+}
+
+.taskDeleteBtn:hover {
+    background-color: rgba(255, 255, 255, 0.16);
+}
+
+.taskDeleteBtn:active {
+    background-color: rgba(108, 108, 108, 0.16);
+}
+
+.taskDeleteBtn:hover img {
+    opacity: 0.8;
+}
+
+.taskDeleteBtn img {
+    opacity: 0.5;
+    width: 20px;
+    height: 20px;
+}
+
+.modalBg {
+    height: 100vh;
+    width: 100%;
+    top: 0;
+    left: 0;
+    position: fixed;
+    opacity: 1;
+    transition: 300ms;
+    z-index: 10;
+    background-color: rgba(0, 0, 0, 0.42);
+}
+
+.hideModalBg {
+    opacity: 0;
+    z-index: -5;
+    background-color: transparent;
+}
+
+.editTextModalWindow {
+    width: 500px;
+    height: 150px;
+    padding: 15px;
+    background-color: rgba(0, 0, 0, 0.75);
+    position: absolute;
+    top: 50%;
+    margin-top: -50px;
+    transition: 300ms;
+    left: 50%;
+    margin-left: -250px;
+    z-index: 15;
+    border-radius: 8px;
+    backdrop-filter: blur(3px);
+}
+
+
+@media only screen and (max-width: 560px) {
+    .editTextModalWindow {
+        width: 320px;
+        margin-left: -160px;
+    }
+}
+
+.editTextModalWindow h3 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 25px;
+    margin-bottom: 25px;
+}
+
+.editTextModalWindow div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.editTextModalWindow div input {
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+.editTextModalWindow div button {
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #414141;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+.editTextModalWindow div button:hover {
+    background-color: #6b6b6b;
+}
+
+
+.editTextModalWindow div button:active {
+    background-color: #4f4f4f;
+    color: #c9c9c9;
+}
+
+.hideModal {
+    top: -100%;
+}
+
+.signOutBtn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #ff6c6c;
+    border-radius: 4px;
+    border: none;
+    color: white;
+    height: 30px;
+}
+
+
+
+@media only screen and (max-width: 560px) {
+    .signOutBtn {
+        position: static;
+        width: 100%;
+    }
+}
+
+.signOutBtn:hover {
+    filter: brightness(1.2);
+}
+
+.signOutBtn:active {
+    filter: brightness(0.8);
+}
+
+/*Sign in ========================================*/
+
+.signInCenter {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signInForm {
+    position: relative;
+    padding-bottom: 20px;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 0 15px 0 15px;
+    text-align: center;
+    animation: popUp 500ms;
+}
+@keyframes popUp {
+    from {
+        opacity: 0;
+        top: 100px;
+    }
+    to {
+        opacity: 1;
+        top: 0;
+    }
+}
+
+.signInForm div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+
+.signInForm div span {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.signInForm input {
+    border: none;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+.signInForm button {
+    height: 30px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #414141;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+.signInForm button:hover {
+    background-color: #6b6b6b;
+}
+
+
+.signInForm button:active {
+    background-color: #4f4f4f;
+    color: #c9c9c9;
+}
+
+.signInInvalidMessage {
+    height: 20px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+/*Sign Up =========================================*/
+
+.signUpCenter {
+    height: calc(100vh - 80px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.signUpForm {
+    position: relative;
+    padding-bottom: 20px;
+    width: 600px;
+    background-color: rgba(255, 255, 255, 0.24);
+    border-radius: 0 15px 0 15px;
+    text-align: center;
+    animation: popUp 500ms;
+}
+
+.signUpForm div {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+
+.signUpForm div span {
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.signUpForm input {
+    border: none;
+    padding: 5px;
+    width: 100%;
+    height: 30px;
+}
+
+.signUpForm button {
+    height: 30px;
+    font-weight: 700;
+    padding: 0 10px;
+    cursor: pointer;
+    text-transform: uppercase;
+    background-color: #414141;
+    border-radius: 4px;
+    border: none;
+    color: white;
+}
+
+.signUpForm button:hover {
+    background-color: #6b6b6b;
+}
+
+
+.signUpForm button:active {
+    background-color: #4f4f4f;
+    color: #c9c9c9;
+}
+
+.signUpUserExistsMessage {
+    height: 20px;
+    color: red;
+    margin-bottom: 10px;
+}
+
+header {
+    background-color: rgba(255, 255, 255, 0.69);
+}
+
+.header_inner {
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header_inner p {
+    font-size: 30px;
+    font-weight: 700;
+    text-align: center;
+}
+
+footer {
+    background-color: rgba(0, 0, 0, 0.91);
+}
+
+.footer_inner {
+    padding: 60px 0;
+    display: flex;
+    justify-content: center;
+
+}
+
+.footer_inner ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.footer_inner ul li a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 18px;
+}
+
+.footer_inner ul li span {
+    font-weight: 700;
+    display: block;
+    width: 40px;
+    color: #8c8c8c;
+    font-size: 14px;
+}
+
+.footer_inner ul li a:hover {
+    text-decoration: underline;
+}
